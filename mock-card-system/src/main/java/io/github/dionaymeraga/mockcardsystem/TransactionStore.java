@@ -6,6 +6,8 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Map;
 import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class TransactionStore {
@@ -19,5 +21,15 @@ public class TransactionStore {
 
     public Optional<Transaction> findById(String id) {
         return Optional.ofNullable(transactions.get(id));
+    }
+
+    public List<Transaction> findByCardId(String cardId) {
+        List<Transaction> result = new ArrayList<>();
+        for (Transaction transaction : transactions.values()) {
+            if (transaction.cardId().equals(cardId)) {
+                result.add(transaction);
+            }
+        }
+        return result;
     }
 }
