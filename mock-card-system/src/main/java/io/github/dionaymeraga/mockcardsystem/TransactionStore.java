@@ -22,7 +22,9 @@ public class TransactionStore {
             "tx-3001", new Transaction("tx-3001", "card-03", "m-books",
                     new BigDecimal("42.90"), "EUR", Instant.parse("2026-10-20T14:05:00Z")),
             "tx-4001", new Transaction("tx-4001", "card-04", "m-fashion",
-                    new BigDecimal("129.99"), "EUR", Instant.parse("2026-11-01T17:30:00Z"))
+                    new BigDecimal("129.99"), "EUR", Instant.parse("2026-11-01T17:30:00Z")),
+            "tx-5001", new Transaction("tx-5001", "card-05", "m-coffee",
+                    new BigDecimal("3.20"), "EUR", Instant.parse("2026-11-05T09:10:00Z"))
     );
 
     public Optional<Transaction> findById(String id) {
