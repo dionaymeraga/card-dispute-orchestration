@@ -5,6 +5,7 @@ import java.time.Instant;
 
 public record Transaction(
         String id,
+        String acquirerReference,
         String cardId,
         String merchantId,
         BigDecimal amount,
