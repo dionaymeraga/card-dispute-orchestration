@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1my1kes" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="6a0669f" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.10.0">
+  <decision id="dispute-route" name="Dispute route">
+    <decisionTable id="DecisionTable_0u7sdhp" hitPolicy="FIRST">
+      <input id="Input_1" label="Transaction matches">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>transactionMatches</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1g1lwl7" label="Category">
+        <inputExpression id="LiteralExpression_1h06o7g" typeRef="string">
+          <text>category</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1nf6b7a" label="Confidence">
+        <inputExpression id="LiteralExpression_1exfg9f" typeRef="string">
+          <text>confidence</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1c3k7v5" label="Amount">
+        <inputExpression id="LiteralExpression_1aot0kn" typeRef="number">
+          <text>amount</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Route" name="route" typeRef="string" />
+      <rule id="DecisionRule_0vy6wpn">
+        <inputEntry id="UnaryTests_03zmhy3">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13cdep2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y03jp7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nujup4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rvqbpu">
+          <text>"MANUAL_REVIEW"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cz5mw0">
+        <inputEntry id="UnaryTests_015skif">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tgnxpi">
+          <text>"DUPLICATE_CHARGE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04lqx9q">
+          <text>"HIGH"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u0sjys">
+          <text>&lt;= 50</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0k79oq2">
+          <text>"AUTO_APPROVE"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08iqwi6">
+        <inputEntry id="UnaryTests_06auznt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06vnnr2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ndt22d">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_143vtmd">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pzhr68">
+          <text>"MANUAL_REVIEW"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="dispute-route">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
